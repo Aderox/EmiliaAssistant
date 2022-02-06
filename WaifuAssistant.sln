@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaifuAssistant", "WaifuAssistant\WaifuAssistant.csproj", "{AA8C5529-393A-4FE3-8AB6-526B00C8326E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA8C5529-393A-4FE3-8AB6-526B00C8326E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA8C5529-393A-4FE3-8AB6-526B00C8326E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA8C5529-393A-4FE3-8AB6-526B00C8326E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA8C5529-393A-4FE3-8AB6-526B00C8326E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FFD8037F-2935-461A-970E-AC5C03B67E5D}
+	EndGlobalSection
+EndGlobal
