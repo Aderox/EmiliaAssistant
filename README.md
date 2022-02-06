@@ -1,0 +1,2 @@
+# EmiliaAssistant
+A waifu assistant
