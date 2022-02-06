@@ -86,6 +86,7 @@ namespace WaifuAssistant
             button2.Enabled = true;
         }
 
+        //disable lisening
         private void button2_Click(object sender, EventArgs e)
         {
             recognization.RecognizeAsyncStop();
