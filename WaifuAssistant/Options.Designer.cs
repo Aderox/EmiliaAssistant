@@ -61,9 +61,10 @@ namespace WaifuAssistant
             this.discardChanges = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textCommands = new System.Windows.Forms.RichTextBox();
-            this.choosedFile = new System.Windows.Forms.Label();
             this.selectAudioFile = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.listOfCommands = new System.Windows.Forms.ListView();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@ namespace WaifuAssistant
             this.saveChanges.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.saveChanges.FlatAppearance.BorderSize = 0;
             this.saveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveChanges.Location = new System.Drawing.Point(105, 271);
+            this.saveChanges.Location = new System.Drawing.Point(105, 307);
             this.saveChanges.Name = "saveChanges";
             this.saveChanges.Size = new System.Drawing.Size(75, 23);
             this.saveChanges.TabIndex = 1;
@@ -86,7 +87,7 @@ namespace WaifuAssistant
             this.discardChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.discardChanges.FlatAppearance.BorderSize = 0;
             this.discardChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.discardChanges.Location = new System.Drawing.Point(585, 271);
+            this.discardChanges.Location = new System.Drawing.Point(559, 307);
             this.discardChanges.Name = "discardChanges";
             this.discardChanges.Size = new System.Drawing.Size(75, 23);
             this.discardChanges.TabIndex = 2;
@@ -97,11 +98,11 @@ namespace WaifuAssistant
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textCommands);
-            this.panel1.Controls.Add(this.choosedFile);
             this.panel1.Controls.Add(this.selectAudioFile);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(82, 49);
+            this.panel1.Location = new System.Drawing.Point(65, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(606, 118);
             this.panel1.TabIndex = 3;
@@ -111,22 +112,11 @@ namespace WaifuAssistant
             this.textCommands.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.textCommands.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textCommands.ForeColor = System.Drawing.Color.White;
-            this.textCommands.Location = new System.Drawing.Point(349, 24);
+            this.textCommands.Location = new System.Drawing.Point(349, 39);
             this.textCommands.Name = "textCommands";
-            this.textCommands.Size = new System.Drawing.Size(193, 65);
+            this.textCommands.Size = new System.Drawing.Size(240, 65);
             this.textCommands.TabIndex = 3;
             this.textCommands.Text = "";
-            // 
-            // choosedFile
-            // 
-            this.choosedFile.AutoSize = true;
-            this.choosedFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.choosedFile.ForeColor = System.Drawing.Color.White;
-            this.choosedFile.Location = new System.Drawing.Point(88, 92);
-            this.choosedFile.Name = "choosedFile";
-            this.choosedFile.Size = new System.Drawing.Size(77, 15);
-            this.choosedFile.TabIndex = 2;
-            this.choosedFile.Text = "Aucun fichier";
             // 
             // selectAudioFile
             // 
@@ -153,12 +143,34 @@ namespace WaifuAssistant
             this.label1.TabIndex = 0;
             this.label1.Text = "Enrengistrer une nouvelle commande vocal:";
             // 
+            // listOfCommands
+            // 
+            this.listOfCommands.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.listOfCommands.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listOfCommands.HideSelection = false;
+            this.listOfCommands.Location = new System.Drawing.Point(91, 177);
+            this.listOfCommands.Name = "listOfCommands";
+            this.listOfCommands.Size = new System.Drawing.Size(549, 97);
+            this.listOfCommands.TabIndex = 4;
+            this.listOfCommands.UseCompatibleStateImageBehavior = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(386, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Texte pour déclancher la commande:";
+            // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(731, 369);
+            this.Controls.Add(this.listOfCommands);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.discardChanges);
             this.Controls.Add(this.saveChanges);
@@ -178,7 +190,8 @@ namespace WaifuAssistant
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button selectAudioFile;
-        private System.Windows.Forms.Label choosedFile;
         private System.Windows.Forms.RichTextBox textCommands;
+        private ListView listOfCommands;
+        private Label label2;
     }
 }

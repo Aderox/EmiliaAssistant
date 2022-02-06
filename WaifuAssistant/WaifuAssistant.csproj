@@ -97,5 +97,8 @@
   <ItemGroup>
     <Content Include="Properties\Resources\gear.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\Resources\ClientResources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

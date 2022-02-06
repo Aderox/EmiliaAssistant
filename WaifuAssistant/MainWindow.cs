@@ -14,20 +14,22 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Activities;
+using System.IO;
 
 namespace WaifuAssistant
 {
     public partial class mainWindow : Form
     {
         public bool isOptionShown { get; set; } = false;
-
+        public static string clientResources { set; get; } = System.Environment.CurrentDirectory + "\\Resources\\ClientResources";
+        public static string clientCmds { set; get; } = clientResources + "\\cmds.json";
         /// <summary>
         /// Point d'entrée principal de l'application.
         /// </summary>
 
         [DllImport("User32.dll")]
         static extern int SetForegroundWindow(IntPtr point);
-        SpeechRecognitionEngine recognization = new SpeechRecognitionEngine();
+        SpeechRecognitionEngine recognization = new SpeechRecognitionEngine(new CultureInfo("fr-FR"));
 
         public mainWindow()
         {
@@ -51,6 +53,36 @@ namespace WaifuAssistant
 
         }
 
+        private void LoadAllCmds(Choices cmds)
+        {
+            //for each cmds in the file appends 
+
+            if (!Directory.Exists(clientResources))
+            {
+                Directory.CreateDirectory(clientResources);
+            }
+            if (!File.Exists(clientCmds))
+            {
+                //le fichier existe pas on le crée
+                using (FileStream fs = File.Create(clientCmds))
+                {
+                    Byte[] info =
+                        new UTF8Encoding(true).GetBytes("{}");
+
+                    // Add some information to the file.
+                    fs.Write(info, 0, info.Length);
+                }
+            }
+            using (StreamReader sr = File.OpenText(clientCmds))
+            {
+                string s = "";
+                while((s = sr.ReadLine()) != null)
+                {
+                }
+                Console.WriteLine(s);
+            }
+        }
+
         private void recognized_voice(object sender, SpeechRecognizedEventArgs e)
         {
             string resultat = e.Result.Text;
@@ -68,9 +100,16 @@ namespace WaifuAssistant
             }
         }
 
-        private void Pause()
+        public void Pause()
         {
             //fait en sorte de ne plus pouvoir intéragir avec les bouttons
+            this.button1.Enabled = false;
+            this.button2.Enabled = false;
+        }
+        public void Resume()
+        {
+            this.button1.Enabled = true;
+            this.button2.Enabled = true;
         }
 
         public void EnableOptionButton(bool action)
@@ -90,7 +129,7 @@ namespace WaifuAssistant
         private void button2_Click(object sender, EventArgs e)
         {
             recognization.RecognizeAsyncStop();
-            richTextBox1.Text += "\nFin de l'écoute";
+            richTextBox1.Text += "\nFin de l'écoute.";
             button1.Enabled = true;
             button2.Enabled = false;
         }
@@ -120,6 +159,13 @@ namespace WaifuAssistant
         private void mainWindow_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //temp button 
+            Choices cmds = new Choices();
+            this.LoadAllCmds(cmds);
         }
     }
 }
