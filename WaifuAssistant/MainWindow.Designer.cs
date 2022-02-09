@@ -58,7 +58,7 @@ namespace WaifuAssistant
             //add event for from (load, mouseDown and resize event)
             this.Load += new System.EventHandler(this.mainWindow_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainWindow_MouseDown);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable; //supprime les bordures
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle; //supprime les bordures
 
         }
 
@@ -141,7 +141,7 @@ namespace WaifuAssistant
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(594, 575);
+            this.button3.Location = new System.Drawing.Point(150, 98);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 5;

@@ -62,7 +62,7 @@ namespace WaifuAssistant
 
         private void saveChanges_Click(object sender, EventArgs e)
         {
-            if (isFileChoosen)
+            if (this.textCommands.Text != "")
             {
                 if (!Directory.Exists(mainWindow.clientResources + "\\USER_VOICE\\"))
                 {
@@ -71,23 +71,35 @@ namespace WaifuAssistant
                 if (!File.Exists(mainWindow.clientResources + "\\USER_VOICE\\" + fileName))
                 {
                     File.Copy(initialPath, mainWindow.clientResources + "\\USER_VOICE\\" + fileName);
-                    //TODO REGISTER TO JSON
-                    MessageBox.Show("Le fichier à été copié avec succés !", "SUCCES", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mainWindow.RegisterCommand result = this.mainWindowParent.WriteClientJson(this.textCommands.Text, @"\USER_VOICE\" + fileName);
+                    if (result == mainWindow.RegisterCommand.OK)
+                    {
+                        MessageBox.Show("Le fichier à été copié avec succés !", "SUCCES", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (result == mainWindow.RegisterCommand.ALREADY_EXIST)
+                    {
+                        MessageBox.Show("Le fichier à été copié avec succés mais la commande existe déjà !", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Le fichier à été copié avec succés mais il y a eu une erreur inconnu lors de l'enrengistrement de la commande", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Le fichier existe déjà !", "ATTENTION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Le fichier existe déjà (la commande est enrengistrer) !", "ATTENTION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
+                this.mainWindowParent.EnableOptionButton(true);
+                this.mainWindowParent.Resume();
+                this.Close();
             }
             else
             {
                 //pas de fichier audio
+                MessageBox.Show("Vous devez écrire une commande !", "ATTENTION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-
-            this.mainWindowParent.EnableOptionButton(true);
-            this.mainWindowParent.Resume();
-            this.Close();
         }
 
     }
