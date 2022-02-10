@@ -71,12 +71,12 @@ namespace WaifuAssistant
                 if (!File.Exists(mainWindow.clientResources + "\\USER_VOICE\\" + fileName))
                 {
                     File.Copy(initialPath, mainWindow.clientResources + "\\USER_VOICE\\" + fileName);
-                    mainWindow.RegisterCommand result = this.mainWindowParent.WriteClientJson(this.textCommands.Text, @"\USER_VOICE\" + fileName);
-                    if (result == mainWindow.RegisterCommand.OK)
+                    MyFileReader.RegisterCommand result = this.mainWindowParent.fileReader.WriteClientJson(this.textCommands.Text, @"\USER_VOICE\" + fileName, this.mainWindowParent.getClientCmds(), this.mainWindowParent.getClientPath());
+                    if (result == MyFileReader.RegisterCommand.OK)
                     {
                         MessageBox.Show("Le fichier à été copié avec succés !", "SUCCES", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    else if (result == mainWindow.RegisterCommand.ALREADY_EXIST)
+                    else if (result == MyFileReader.RegisterCommand.ALREADY_EXIST)
                     {
                         MessageBox.Show("Le fichier à été copié avec succés mais la commande existe déjà !", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;

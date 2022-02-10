@@ -59,7 +59,6 @@ namespace WaifuAssistant
             this.Load += new System.EventHandler(this.mainWindow_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainWindow_MouseDown);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle; //supprime les bordures
-
         }
 
         #region Code généré par le Concepteur Windows Form
@@ -76,9 +75,8 @@ namespace WaifuAssistant
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainWindow));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.optionButton = new WaifuAssistant.RoundButton();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -112,18 +110,6 @@ namespace WaifuAssistant
             this.button2.Text = "Desactiver";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.ForeColor = System.Drawing.Color.White;
-            this.richTextBox1.Location = new System.Drawing.Point(292, 165);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox1.Size = new System.Drawing.Size(713, 180);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
-            // 
             // optionButton
             // 
             this.optionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
@@ -139,15 +125,16 @@ namespace WaifuAssistant
             this.optionButton.UseVisualStyleBackColor = false;
             this.optionButton.Click += new System.EventHandler(this.optionButton_Click_1);
             // 
-            // button3
+            // label1
             // 
-            this.button3.Location = new System.Drawing.Point(150, 98);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(602, 148);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 24);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "textBox";
             // 
             // mainWindow
             // 
@@ -156,14 +143,14 @@ namespace WaifuAssistant
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.optionButton);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "mainWindow";
             this.Load += new System.EventHandler(this.mainWindow_Load_1);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -171,9 +158,8 @@ namespace WaifuAssistant
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private RoundButton optionButton;
-        private Button button3;
+        private Label label1;
     }
 }
 

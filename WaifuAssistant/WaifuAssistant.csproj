@@ -98,6 +98,7 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyFileReader.cs" />
     <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +107,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpeechRecognition.cs" />
+    <Compile Include="WinApi.cs" />
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
